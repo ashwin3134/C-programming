@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int sum(int start, int end, int type) {
+    if (start > end) {
+        return 0;
+    }
+    int current = start % 2 == 0 ? start : start + 1;
+    if (type == 1 && current % 2 == 1) {
+        current++;
+    } else if (type == 0 && current % 2 == 0) {
+        current++;
+    }
+    return current + sum(current + 2, end, type);
+}
+
+int main() {
+    int start = 1, end = 10;
+    int even_sum = sum(start, end, 0);
+    int odd_sum = sum(start, end, 1);
+    printf("Sum of even numbers from %d to %d is %d\n", start, end, even_sum);
+    printf("Sum of odd numbers from %d to %d is %d\n", start, end, odd_sum);
+    return 0;
+}
