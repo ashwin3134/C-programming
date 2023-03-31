@@ -1,0 +1,30 @@
+#include <stdio.h>
+#define ROWS 3
+#define COLS 3
+void inputElements(int (*arr)[COLS]) {
+    printf("Enter the elements of the array:\n");
+    for(int i = 0; i < ROWS; i++) {
+        for(int j = 0; j < COLS; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+}
+void printElements(int (*arr)[COLS]) {
+    printf("The elements of the array are:\n");
+    for(int i = 0; i < ROWS; i++) {
+        for(int j = 0; j < COLS; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+int main() {
+    int arr[ROWS][COLS];
+    int (*p)[COLS];
+
+    p = arr;
+
+    inputElements(p);
+    printElements(p);
+    return 0;
+}
