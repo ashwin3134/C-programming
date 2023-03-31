@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+void swapArrays(int *arr1, int *arr2, int size1, int size2) {
+    int minSize = size1 < size2 ? size1 : size2;
+
+    for(int i = 0; i < minSize; i++) {
+        int temp = *(arr1+i);
+        *(arr1+i) = *(arr2+i);
+        *(arr2+i) = temp;
+    }
+}
+
+int main() {
+    int arr1[5] = {1, 2, 3, 4, 5};
+    int arr2[3] = {10, 20, 30};
+
+    // Print the elements of arr1 and arr2 before swapping
+    printf("Elements of arr1 before swapping:\n");
+    for(int i = 0; i < 5; i++) {
+        printf("%d ", arr1[i]);
+    }
+    printf("\n");
+    printf("Elements of arr2 before swapping:\n");
+    for(int i = 0; i < 3; i++) {
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+
+    // Swap the corresponding elements of arr1 and arr2 using pointers
+    swapArrays(arr1, arr2, 5, 3);
+
+    // Print the elements of arr1 and arr2 after swapping
+    printf("Elements of arr1 after swapping:\n");
+    for(int i = 0; i < 5; i++) {
+        printf("%d ", arr1[i]);
+    }
+    printf("\n");
+    printf("Elements of arr2 after swapping:\n");
+    for(int i = 0; i < 3; i++) {
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
